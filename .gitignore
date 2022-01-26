@@ -1,0 +1,4 @@
+__pycache__/
+media/
+.venv/
+.ycm_extra_conf.py
