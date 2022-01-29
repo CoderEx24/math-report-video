@@ -6,31 +6,31 @@ from manim import *
 
 class Intro(Scene):
     def construct(self):
-        title = Text("Digital Image")
+        title = Tex("Digital Image")
 
         self.play(Write(title))
         self.wait(3)
         self.play(FadeOut(title))
         self.wait(1)
 
-        title   = Text("Topic Points")
-        point_1 = Text("- Representing Images as Matrices")
-        point_2 = Text("- Types of Image Compression")
-        point_3 = Text("- JPEG")
-       
+        title   = Tex("Topic Points")
+        point_1 = Tex("- Representing Images as Matrices")
+        point_2 = Tex("- Types of Image Compression")
+        point_3 = Tex("- JPEG")
+        
+        point_1.align_to(3 * UP)
+        point_2.next_to(point_1, DOWN).align_to(point_1, LEFT)
+        point_3.next_to(point_2, DOWN).align_to(point_1, LEFT)
+
         self.play(Write(title))
-        self.wait(1)
+        self.wait(3)
         self.play(title.animate.align_on_border(UP))
-        self.wait(1)
+        self.wait(3)
         self.play(Write(point_1))
-        self.wait()
-        self.play(point_1.animate.next_to(title, DOWN))
-        self.wait(1)
+        self.wait(3)
         self.play(Write(point_2))
-        self.wait()
-        self.play(point_2.animate.next_to(point_1, DOWN))
-        self.wait(1)
+        self.wait(3)
         self.play(Write(point_3))
-        self.wait()
-        self.play(point_3.animate.next_to(point_2, DOWN))
-        self.wait(1)
+        self.wait(3)
+        self.play(FadeOut(title), FadeOut(point_1), FadeOut(point_2), FadeOut(point_3))
+        self.wait(3)
