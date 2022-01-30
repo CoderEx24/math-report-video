@@ -86,3 +86,27 @@ class RepresentImageAsMatrix(Scene):
         self.play(FadeOut(rgb_title), FadeOut(rgb_vector), FadeOut(red_circle), FadeOut(green_circle), FadeOut(blue_circle), \
                 FadeOut(cmyk_title), FadeOut(cmyk_vector), FadeOut(cyan_circle), FadeOut(magenta_circle), FadeOut(yellow_circle), FadeOut(black_circle))
         self.wait(1)
+
+        in_rgb_title = Tex("in RGB")
+        r_matrix     = MathTex(r"R_{I_{m \times n}} = \begin{bmatrix} r_{11} & r_{12} & \hdots & r_{1n} \\ r_{21} & r_{22} & \hdots & r_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ r_{m1} & r_{m2} & \hdots & r_{mn} \end{bmatrix}", font_size=27)
+        g_matrix     = MathTex(r"G_{I_{m \times n}} = \begin{bmatrix} g_{11} & g_{12} & \hdots & g_{1n} \\ g_{21} & g_{22} & \hdots & g_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ g_{m1} & g_{m2} & \hdots & g_{mn} \end{bmatrix}", font_size=27)
+        b_matrix     = MathTex(r"B_{I_{m \times n}} = \begin{bmatrix} b_{11} & b_{12} & \hdots & b_{1n} \\ b_{21} & b_{22} & \hdots & b_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ b_{m1} & b_{m2} & \hdots & b_{mn} \end{bmatrix}", font_size=27)
+        bottom_title = Tex("A color for each channel")
+
+        in_rgb_title.align_on_border(UP)
+        r_matrix.next_to(in_rgb_title, DOWN).align_on_border(LEFT).shift(2 * DOWN)
+        g_matrix.next_to(r_matrix, RIGHT)
+        b_matrix.next_to(g_matrix, RIGHT)
+        bottom_title.next_to(g_matrix, DOWN).shift(2 * DOWN)
+
+        self.play(Write(in_rgb_title))
+        self.wait(3)
+        self.play(Write(r_matrix), Write(g_matrix), Write(b_matrix))
+        self.wait(3)
+        self.play(Write(bottom_title))
+        self.wait(2)
+        self.play(FadeOut(in_rgb_title), FadeOut(r_matrix), \
+                FadeOut(g_matrix), FadeOut(b_matrix), FadeOut(bottom_title))
+        self.wait(3)
+
+
