@@ -28,3 +28,15 @@ class Jpeg(Scene):
                 FadeOut(cc_text));                      self.wait(3)
 
 
+        chroma_subsampling_title = Tex("Chroma Subsampling")
+        unsampled_squares        = ImageMobject("assets/unsampled.png")
+        sampled_squares          = ImageMobject("assets/sampled.png")
+
+        chroma_subsampling_title.align_on_border(UP)
+
+        self.play(Write(chroma_subsampling_title)); self.wait(3)
+        self.play(FadeIn(unsampled_squares));       self.wait(3)
+        self.play(Transform(unsampled_squares, \
+                sampled_squares));                  self.wait(3)
+        self.play(FadeOut(chroma_subsampling_title), \
+                FadeOut(unsampled_squares));        self.wait(3)
