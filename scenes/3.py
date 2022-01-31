@@ -79,3 +79,17 @@ class Jpeg(Scene):
         self.play(Write(discrete_cosine_transform_eqaution));   self.wait(3)
         self.play(FadeOut(discrete_cosine_transform_eqaution), \
                 FadeOut(discrete_cosine_transform_title));      self.wait(3)
+
+        quantization_title            = Tex("Quantization")
+        quantization_equation         = MathTex(r"B_{i,j} = round(\frac{G_{i,j}}{Q_{i,j}}) \\ i = 0,1,2,\hdots,7 \\ j = 0,1,2,\hdots,7")
+        quantization_equation_comment = Tex(r"Where $B$ is the quantized DCT coefficients \\ $G$ is the unquantized DCT coefficients \\ $Q$ is the quantization matrix")
+        
+        quantization_title.align_on_border(UP)
+        quantization_equation_comment.next_to(quantization_equation, DOWN)
+
+        self.play(Write(quantization_title));           self.wait(3)
+        self.play(Write(quantization_equation), \
+                Write(quantization_equation_comment));  self.wait(3)
+
+
+
