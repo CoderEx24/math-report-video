@@ -87,9 +87,19 @@ class Jpeg(Scene):
         quantization_title.align_on_border(UP)
         quantization_equation_comment.next_to(quantization_equation, DOWN)
 
-        self.play(Write(quantization_title));           self.wait(3)
+        self.play(Write(quantization_title));            self.wait(3)
         self.play(Write(quantization_equation), \
-                Write(quantization_equation_comment));  self.wait(3)
+                Write(quantization_equation_comment));   self.wait(3)
+        self.play(FadeOut(quantization_title),  \
+                FadeOut(quantization_equation), \
+                FadeOut(quantization_equation_comment)); self.wait(3)
 
+        entropy_encoding_title = Tex("Entropy Encoding")
+        entropy_encoding_img   = ImageMobject("assets/zigzag.png")
 
+        entropy_encoding_title.align_on_border(UP)
 
+        self.play(Write(entropy_encoding_title)); self.wait(3)
+        self.play(FadeIn(entropy_encoding_img));  self.wait(3)
+        self.play(FadeOut(entropy_encoding_title), \
+                FadeOut(entropy_encoding_img));   self.wait(3)
