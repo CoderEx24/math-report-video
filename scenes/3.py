@@ -9,9 +9,9 @@ class Jpeg(Scene):
 
         color_space_transform_title = Tex("Color Space Transformation")
         rgb_vector                  = MathTex(r"\vec{i}_{rgb} = \begin{bmatrix} R \\ G \\ B \end{bmatrix}")
-        ycc_vector                  = MathTex(r"\vec{i}_{ycc} = \begin{bmatrix} Y \\ C_r \\ C_b \end{bmatrix}")
+        ycc_vector                  = MathTex(r"\vec{i}_{ycc} = \begin{bmatrix} Y \\ C_B \\ C_R \end{bmatrix}")
         y_text                      = Tex("$Y$ is luminance")
-        cc_text                     = Tex("$C_r$ and $C_b$ are chrominance")
+        cc_text                     = Tex("$C_B$ and $C_R$ are chrominance")
 
         color_space_transform_title.align_on_border(UP)
         y_text.next_to(ycc_vector, DOWN)
