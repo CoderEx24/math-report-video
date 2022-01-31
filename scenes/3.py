@@ -64,4 +64,18 @@ class Jpeg(Scene):
         self.play(FadeOut(y_matrix), \
                 FadeOut(cb_matrix),  \
                 FadeOut(cr_matrix));                self.wait(0.1)
+        
+        discrete_cosine_transform_title    = Tex("Discrete Cosine Transform")
+        first_range                        = MathTex(r"[0, 255]")
+        second_range                       = MathTex(r"[-128, 127]")
+        discrete_cosine_transform_eqaution = MathTex(r"G_{u,v} = \frac{1}{4} \alpha(u) \alpha(v) \sum^8_{x=0}\sum^8_{y=0} g_{x,y} \cos(\frac{(2x + 1) u\pi}{16})\cos(\frac{(2y + 1) v\pi}{16})", font_size=40)
+        
+        discrete_cosine_transform_title.align_on_border(UP)
 
+        self.play(Write(discrete_cosine_transform_title));      self.wait(3)
+        self.play(Write(first_range));                          self.wait(3)
+        self.play(Transform(first_range, second_range));        self.wait(3)
+        self.play(FadeOut(first_range));                        self.wait(3)
+        self.play(Write(discrete_cosine_transform_eqaution));   self.wait(3)
+        self.play(FadeOut(discrete_cosine_transform_eqaution), \
+                FadeOut(discrete_cosine_transform_title));      self.wait(3)
