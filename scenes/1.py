@@ -15,7 +15,7 @@ class RepresentImageAsMatrix(Scene):
         self.play(vector_image_title.animate.align_on_border(UP))
         self.wait(3)
 
-        line, circle, square = Line(RIGHT + UP, LEFT + DOWN), Circle(color=RED, fill_opacity=0.3), Square(color=BLUE, fill_opacity=0.3)
+        line, circle, arc = Line(RIGHT + UP, LEFT + DOWN), Circle(color=RED, fill_opacity=0.3), Arc(angle=5 * PI/6, color=BLUE, fill_opacity=0.3)
         
         circle.shift(2 * LEFT)
         square.shift(    LEFT)
@@ -24,9 +24,9 @@ class RepresentImageAsMatrix(Scene):
         self.wait(3)
         self.play(Create(circle))
         self.wait(3)
-        self.play(Create(square))
+        self.play(Create(arc))
         self.wait(3)
-        self.play(FadeOut(line), FadeOut(circle), FadeOut(square), FadeOut(vector_image_title))
+        self.play(FadeOut(line), FadeOut(circle), FadeOut(arc), FadeOut(vector_image_title))
         self.wait(5)
 
 
